@@ -9,6 +9,8 @@
 
 Create CICD pipeline using Jenkins, Nexus, Gitea deployments on Kubernetes.
 
+![CICD](https://github.com/theJaxon/Minimal-CICD/blob/master/etc/CICD/Overview-transparent-bg.png)
+
 ### :zap: [Gitea](https://hub.docker.com/r/gitea/gitea) self-hosted git service:
 - Gitea docker uses `sqlite3` as a DB by default.
 - A configMap is created to hold the environment variables used in the gitea pod.
@@ -58,6 +60,8 @@ k apply -f gitea-svc.yml
 
 k port-forward deploy/gitea 3000:3000 --address 0.0.0.0 &
 ```
+
+![annotate](https://github.com/theJaxon/Minimal-CICD/blob/master/etc/gitea/gitea-rollout.jpg)
 
 #### :black_circle: Pushing the sample task to the repo:
 ```
@@ -152,6 +156,8 @@ Since gitea is running in a different pod, jenkins pod is able to resolve the se
 http://gitea:3000/jaxon/sample-task.git
 ```
 
+![Jenkins](https://github.com/theJaxon/Minimal-CICD/blob/master/etc/Pipeline-repo.jpg)
+
 ---
 
 ### :zap: Sonatype Nexus - Private container registry:
@@ -171,6 +177,8 @@ k port-forward deploy/nexus 8123:8123 --address 0.0.0.0 &
 ```
 #### :black_circle: Add [docker repository in Nexus](https://www.ivankrizsan.se/2016/06/09/create-a-private-docker-registry/):
 From `http://172.42.42.100:8081/#admin/repository/repositories` click on **Create repository** and select **docker (hosted)** as the option
+
+![nexus1](https://github.com/theJaxon/Minimal-CICD/blob/master/etc/Nexus/Nexus3-repo.jpg)
 
 #### :black_circle: Setup docker to work with Nexus over HTTP:
 Add nexus as an insecure registry in `/etc/docker/daeomn.json`
@@ -196,7 +204,7 @@ docker push 172.42.42.100:8123/jenkins:ci
 ```
 
 Final result:
-
+![final-result](https://github.com/theJaxon/Minimal-CICD/blob/master/etc/Nexus/Nexus-image.jpg)
 ---
 
 ### Deploying the sample app using k8s:
