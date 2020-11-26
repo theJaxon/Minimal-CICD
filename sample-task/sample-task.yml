@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: sample-task
+  name: sample-task
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sample-task
+  template:
+    metadata:
+      labels:
+        app: sample-task
+    spec:
+      containers:
+      - image: 172.42.42.100:8123/sample-task
+        imagePullPolicy: Always
+        name: sample-task
+      imagePullSecrets:
+      - name: regcred
+      nodeName: kmaster.example.com

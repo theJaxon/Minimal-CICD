@@ -1,0 +1,52 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"rbac.authorization.k8s.io/v1","kind":"ClusterRole","metadata":{"annotations":{},"creationTimestamp":null,"name":"jenkins"},"rules":[{"apiGroups":[""],"resources":["pods","pods/exec","services","configmaps","secrets"],"verbs":["create","delete","get","list","update","watch"]},{"apiGroups":["apps"],"resources":["deployments"],"verbs":["create","delete","get","list","update","watch"]}]}
+  creationTimestamp: "2020-11-26T18:45:54Z"
+  labels:
+    app: jenkins
+  managedFields:
+  - apiVersion: rbac.authorization.k8s.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:kubectl.kubernetes.io/last-applied-configuration: {}
+      f:rules: {}
+    manager: kubectl-client-side-apply
+    operation: Update
+    time: "2020-11-26T18:45:54Z"
+  name: jenkins
+  resourceVersion: "493750"
+  selfLink: /apis/rbac.authorization.k8s.io/v1/clusterroles/jenkins
+  uid: c3512d6c-bf80-46cb-8eab-924e37e3323b
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - pods
+  - pods/exec
+  - services
+  - configmaps
+  - secrets
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - update
+  - watch
+- apiGroups:
+  - apps
+  resources:
+  - deployments
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - update
+  - watch

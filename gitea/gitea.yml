@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: gitea
+  name: gitea
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gitea
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: gitea
+    spec:
+      containers:
+      - image: gitea/gitea:1.12.6
+        name: gitea
+        resources: {}
+status: {}

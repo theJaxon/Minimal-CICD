@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: jenkins
+  name: jenkins
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jenkins
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: jenkins
+    spec:
+      nodeName: kmaster.example.com
+      serviceAccountName: jaxon 
+      volumes:
+        - name: docker-v 
+          hostPath:
+            path: /var/run/docker.sock 
+      containers:
+      - image: jenkins:ci
+        imagePullPolicy: Never 
+        name: jenkins
+        volumeMounts:
+          - name: docker-v 
+            mountPath: /var/run/docker.sock 

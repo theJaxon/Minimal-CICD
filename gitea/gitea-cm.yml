@@ -1,0 +1,11 @@
+apiVersion: v1
+data:
+  DB_NAME: admin
+  DB_USER: admin
+  DISABLE_GIT_HOOKS: "false"
+  DOMAIN: 172.42.42.100
+  SSH_DOMAIN: 172.42.42.100
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: gitea
