@@ -193,7 +193,7 @@ Add nexus as an insecure registry in `/etc/docker/daeomn.json`
 
 From http://172.42.42.100:8081/#admin/security/realms activate **Docker bearer token realm**
 
-#### [Pushing the image into Nexus](https://help.sonatype.com/repomanager3/formats/docker-registry/pushing-images):
+#### :black_circle: [Pushing the image into Nexus](https://help.sonatype.com/repomanager3/formats/docker-registry/pushing-images):
 1. Tag the image 
 ```bash
 # Tag the image 
@@ -207,7 +207,7 @@ Final result:
 ![final-result](https://github.com/theJaxon/Minimal-CICD/blob/master/etc/Nexus/Nexus-image.jpg)
 ---
 
-### Deploying the sample app using k8s:
+### :zap: Deploying the sample app using k8s:
 1. Create a [secret](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line) containing credentials for Neuxs private registry.
 
 ```bash
